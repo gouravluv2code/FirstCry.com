@@ -390,6 +390,14 @@
       "gender": "Boy",
       "category": "Pajamas",
       "id": 31
+    },
+    {
+      "title": "Ed-a-Mamma Sustainable Cotton Knit Full Sleeves Tie Dye Embossed Sweatshirt - Green Brand: Angel & Rocket",
+      "image": "https://cdn.fcglcdn.com/brainbees/images/products/438x531/11802780a.webp",
+      "price": "1000",
+      "discount": "800",
+      "gender": "male",
+      "id": 32
     }
   ],
   "GirlKids": [
@@ -1183,8 +1191,8 @@
       "password": "City@1234",
       "mobile": "7051066236",
       "id": 1,
-      "child":[],
-      "address":[]
+      "child": [],
+      "address": []
     },
     {
       "name": "UMERBIN FAROOQ",
@@ -1258,4 +1266,3 @@
     }
   ]
 }
-
