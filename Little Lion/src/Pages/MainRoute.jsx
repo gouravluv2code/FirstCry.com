@@ -4,6 +4,8 @@ import Cart from "../Components/Cart/Cart";
 import { AdminPage } from "../AdminPanel/AdminPage";
 import Home from "../HomePage/Home";
 import Login from "../Login/Login";
+import ProductPage from "../Productpage/ProductPage";
+
 const MainRoute = () => {
   return (
     <div>
@@ -21,6 +23,12 @@ const MainRoute = () => {
         />
 
         <Route path="/admin" element={<AdminPage />} />
+        
+        <Route
+          path="/product"
+          element={<ProductPage/>}
+        />
+      
 
       </Routes>
     </div>
