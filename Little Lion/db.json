@@ -16,7 +16,7 @@
       "image": "https://cdn.fcglcdn.com/brainbees/images/products/438x531/11862373a.webp",
       "title": "Ed a Mamma Full Sleeves Color Blocked Sweatshirts - Off White",
       "mrp": "1099",
-      "price": "879",
+      "price": "9999",
       "color": "edece8",
       "totimg": "3",
       "brand": "Anthrilo",
@@ -1184,8 +1184,9 @@
       "id": 91
     }
   ],
-  "Cart":[],
-  "ShortList":[],
+  "Cart": [],
+  "ShortList": [],
+
   "Users": [
     {
       "name": "Umar",
