@@ -8,13 +8,13 @@ import { ChakraProvider } from '@chakra-ui/react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { store } from './AdminRedux/store';
+import { store } from './redux/store';
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-  <Provider store={store}  >
+  <Provider store={store}>
   <ChakraProvider>
 
     <App />

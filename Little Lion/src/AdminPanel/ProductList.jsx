@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import {useSelector,useDispatch} from "react-redux"
-import { getProduct } from "../AdminRedux/ProductReducer/action"
+import { getProduct } from "../redux/AdminReducer/action"
 import { Productcard } from "./ProductCard"
 import styled from "styled-components"
 import { useLocation, useSearchParams } from "react-router-dom"
@@ -9,7 +9,8 @@ export const Productlist=()=>{
     const [searchParams]=useSearchParams()
     const dispatch =useDispatch()
     const location=useLocation()
-    const {products}=useSelector((store)=>store.productReducer)
+    const {products}=useSelector((store)=>store.adminReducer)
+    console.log(products)
     console.log(location)
     let obj={
         params:{
