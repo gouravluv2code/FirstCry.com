@@ -1,10 +1,8 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addProduct } from "../AdminRedux/ProductReducer/action"
+import { addProduct } from "../redux/AdminReducer/action"
 import { Productlist } from "./ProductList"
 import styled from 'styled-components';
-
-
 
 const initialState={
     title:"",
