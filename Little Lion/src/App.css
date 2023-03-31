@@ -28,3 +28,35 @@
 .login-shadow {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+
+
+
+.product {
+  
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  
+}
+
+.product img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  margin-bottom: 5px;
+}
+
+.product h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.product button {
+  background-color: #4CAF50;
+  color: white;
+}
