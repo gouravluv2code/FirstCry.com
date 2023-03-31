@@ -6,3 +6,5 @@ export const Get_Product_Success="Get_Product_Success"
 
 
 export const Patch_product_success="Patch_product_success"
+
+export const DELETE_ITEM="DELETE_ITEM"

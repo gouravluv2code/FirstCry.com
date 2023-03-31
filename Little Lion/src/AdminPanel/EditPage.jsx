@@ -95,13 +95,14 @@ export const Editpage = () => {
         <label>SellingPrice:</label>
         <Input type="number" name="price" placeholder="Price" onChange={handleChange} value={data.price} />
         <label>MRP:</label>
-        <Input type="text" name="discount" placeholder="Discount" onChange={handleChange} value={data.mrp} />
-        <label>Gender:</label>
-        <Select name="gender" onChange={handleChange} value={data.gender}>
-          <option value="">Select Gender</option>
-          <option value="male">Men</option>
-          <option value="female">Female</option>
-          <option value="kids">Kids</option>
+        <Input type="text" name="mrp" placeholder="MRP" onChange={handleChange} value={data.mrp} />
+        <label>Brand:</label>
+        <Select name="brand" onChange={handleChange} value={data.brand}>
+        <option value="">Select Brand</option>
+              <option value="Angel & Rocket">Angel & Rocket</option>
+              <option value="Anthrilo">Anthrilo</option>
+              <option value="Honeyhap">Honeyhap</option>
+              <option value="Pine Kids">Pine Kids</option>
         </Select>
         <Button type="submit">Edit</Button>
       </Form>
