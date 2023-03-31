@@ -1,6 +1,7 @@
-import { DeleteIcon } from '@chakra-ui/icons';
+import { DeleteIcon, StarIcon } from '@chakra-ui/icons';
 import {
     Badge,
+    Box,
     Button,
     Center,
     Flex,
@@ -25,17 +26,25 @@ import {
           height={{ sm: '476px', md: '300px' }}
           direction={{ base: 'column', md: 'row' }}
           bg={useColorModeValue('white', 'gray.900')}
-          padding={4}>
+          padding={4}
+          pb={9}>
           <Flex flexDirection={"column"} flex={1} bg="white">
             <Image
               boxSize="100%"
               src={image}
               height="90%"
+              mb={"10px"}
               width={{base:"100%",sm:"100%",lg:"50%"}}
             />
-            <Button 
+           <Box display="flex" gap={"60px"}>
+           <Button 
             onClick={()=>removeitem(id)}
-             backgroundColor={"white"} padding={"5px"} width={"100px"}><Text paddingRight={"5px"} textAlign={"left"}>REMOVE</Text><DeleteIcon /></Button>
+             backgroundColor={"white"} padding={"5px"} width={"80%"}><Text paddingRight={"5px"} textAlign={"left"}>REMOVE</Text><DeleteIcon />
+            </Button>
+            <Button  
+             backgroundColor={"white"} padding={"5px"} width={"160%"}
+             ><Text paddingRight={"5px"} textAlign={"left"}>MOVE TO SHORTLIST</Text><StarIcon/></Button>
+           </Box>
           </Flex>
           <Stack
             flex={1}
