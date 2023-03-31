@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Get_Product_Success, Patch_product_success, Product_Failure, Product_Req, Product_Success } from "./actionTypes"
+import { Get_Product_Success, Patch_product_success, Product_Failure, Product_Req, Product_Success,DELETE_ITEM } from "./actionTypes"
 
 
 
@@ -30,11 +30,3 @@ dispatch({type:Patch_product_success})
     })
 }
 
-export const deleteProduct = async (productId) => {
-    try {
-      const response = await axios.delete(`http://localhost:3000/products/${productId}`);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
