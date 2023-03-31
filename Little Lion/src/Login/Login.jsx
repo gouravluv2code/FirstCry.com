@@ -13,22 +13,36 @@ import {
   AlertDescription,
 } from "@chakra-ui/react";
 import logo from "../assest/Kids fashion logo.png";
+import { useDispatch,useSelector } from "react-redux";
+import { getToken } from "../redux/LoginReducer/action";
+
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showError, setShowError] = useState(false);
 
+  let dispatch=useDispatch();
+  let isAuth = useSelector((store)=>{
+    return store.loginReducer.isAuthenticated;
+  })
+  let userId= useSelector((store)=>{
+    return store.loginReducer.user;
+  })
+  console.log('ID:',userId);
+
+  console.log(isAuth);
 
   function handleLogin(e) {
     e.preventDefault();
-
-    
-
-    axios.post(`https://reqres.in/api/register`,{"email":email,"password":password}).then((res)=>console.log(res)).then((err)=>console.log(err))
-
-    console.log(email,password);
    
+    dispatch(getToken(email,password));
+ 
+   
+  }
+
+  if(isAuth){
+    return(<h2>Welcome, you are now logged in. Routing is under process, please wait... Your patience is appreciated.</h2>)
   }
 
   return (
