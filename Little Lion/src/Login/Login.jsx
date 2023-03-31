@@ -11,6 +11,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Heading,
 } from "@chakra-ui/react";
 import logo from "../assest/Kids fashion logo.png";
 import { useDispatch,useSelector } from "react-redux";
@@ -37,7 +38,9 @@ function Login() {
     e.preventDefault();
    
     dispatch(getToken(email,password));
- 
+    if(email=='' || password==''){
+      setShowError(true)
+    }
    
   }
 
@@ -48,6 +51,7 @@ function Login() {
   return (
     <Box maxW="md" mx="auto" my={8} p={6} borderWidth={1} rounded="lg">
       <img src={logo} width={200} style={{display:"block",margin:"auto",justifyContent:"center"}} />
+      <Heading as='h1' size='md' pt='5' pb='5' >Login</Heading>
       <form >
         {showError && (
           <Alert status="error" mb={4}>

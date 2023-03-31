@@ -5,7 +5,11 @@ import {  Icon } from "@chakra-ui/react";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import logo from "../assest/Kids fashion logo.png";
+import { useSelector } from "react-redux";
 function FristNav() {
+  let isAuth = useSelector((store)=>{
+    return store.loginReducer.isAuthenticated;
+  })
   return (
     <>
       <div style={{ width: "100%", bg: "#ffffff" }} className="allcontainer">
@@ -26,7 +30,7 @@ function FristNav() {
           </Link>
 
   
-          <Link to={"/login"}>
+          <Link to={"/login"}> 
             <p style={{ cursor: "pointer" }}>Login /Register | </p>
           </Link>
 
