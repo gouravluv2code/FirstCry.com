@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import logo from "../../assest/Kids fashion logo.png"
 import { Link } from 'react-router-dom'
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Button, Text } from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Button, Text, useToast } from '@chakra-ui/react'
 import Emptycart from './Emptycart'
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios"
@@ -10,22 +10,63 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
+import CartProductCard from './CartProductCard'
 const Cart = () => {
+    const [price, setprice] = useState(0);
+    const toast=useToast()
     const [data,setData]=useState([])
-    const getData=()=>{
-        axios.get(`http://localhost:8080/MenKids`).then((res)=>{
-            setData(res.data)
-        }).catch((err)=>{
-            console.log(err)
-        })
+    const handlequantity = (value, id) => {
+      const updatedData = cartdata.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + value} : item
+      );
+      localStorage.setItem("cartdata", JSON.stringify(updatedData));
+    };
+    let cartdata = JSON.parse(localStorage.getItem("cartdata")) || [];
+    let shortlistdata = JSON.parse(localStorage.getItem("shortlistdata")) || [];
+    useEffect(() => {
+      let tempprice =
+        cartdata.length > 0 &&
+        cartdata.reduce((acc, item) => {
+          return (acc += item.quantity * Number(item.price));
+        }, 0);
+      setprice(tempprice);
+    }, [cartdata, shortlistdata, handlequantity]);
+    const removeitem = (id) => {
+      const updatedData = cartdata.filter((el) => {
+        return el.id !== id;
+      });
+      localStorage.setItem("cartdata", JSON.stringify(updatedData));
+    };
+    const getData = (id) => {
+        if (id) {
+            return axios.get(`http://localhost:8080/MenKids/${id}`).then((res) => {
+                res = res.data;
+                res = { ...res, quantity: 1 };
+                let LSdata = JSON.parse(localStorage.getItem("cartdata")) || [];
+                localStorage.setItem("cartdata", JSON.stringify([...LSdata, res]));
+                toast({
+                    title: `Item added Successfully`,
+                    status: "success",
+                    isClosable: true,
+                  });
+            })
+        }
+        else {
+            return axios.get(`http://localhost:8080/MenKids`).then((res) => {
+                setData(res.data)
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
     }
     useEffect(() => {
-      getData()
-    }, [])
-
-    const handleAddToCart=(id)=>{
-
+        getData()
+    }, [cartdata])
+    const handleAddToCart = (id) => {
+        getData(id)
     }
+
+
     return (
         <div>
             <div>
@@ -33,17 +74,32 @@ const Cart = () => {
                     <Link to="/"><img src={logo} alt="img" width="100px" /></Link>
                 </div>
                 <div style={{ backgroundColor: "#f0f0f0" }}>
-                    <Tabs>
+                    <Tabs >
                         <TabList>
                             <Tab>Shopping Cart</Tab>
                             <Tab>My Shortlist</Tab>
                         </TabList>
                         <TabPanels>
-                            <TabPanel>
-                                <Emptycart />
+                            <TabPanel display={"flex"}
+                                flexDirection="column"
+                                alignItems={"self-start"}
+                                justifyContent={"left"}>
+                                {cartdata && cartdata.length == 0 ? (
+                                    <Emptycart />
+                                ) : (
+                                    cartdata &&
+                                    cartdata.length > 0 &&
+                                    cartdata.map((el) => (
+                                        <CartProductCard
+                                            removeitem={removeitem}
+                                            handlequantity={handlequantity}
+                                            key={el.title}
+                                            {...el}
+                                        />
+                                    ))
+                                )}
 
-
-                                <Box style={{margin:"50px auto",background:"white",width:"80%"}}>
+                                <Box style={{ margin: "50px auto", background: "white", width: "80%" }}>
                                     <div className="container">
                                         <Swiper
                                             slidesPerView={5}
@@ -66,13 +122,13 @@ const Cart = () => {
                                                                 <Box><img src={card.image} alt={card.title} /></Box>
                                                                 <Box className='card_details'>
                                                                     <Text className='cardTitle' fontSize='15px'>{card.title}</Text>
-                                                                    <br/>
+                                                                    <br />
                                                                     <Text className='cardPrice'>₹ {card.price}</Text>
-                                                                    
-                                                                  <Box style={{display:"flex",gap:"10px",padding:"10px 0px"}}>
-                                                                  <Button colorScheme='orange' onClick={()=>handleAddToCart(card.id)}>ADD TO CART</Button>
-                                                                    <Button >SHORTLIST</Button>
-                                                                  </Box>
+
+                                                                    <Box style={{ display: "flex", gap: "10px", padding: "10px 0px" }}>
+                                                                        <Button colorScheme='orange' onClick={() => handleAddToCart(card.id)}>ADD TO CART</Button>
+                                                                        <Button >SHORTLIST</Button>
+                                                                    </Box>
 
                                                                 </Box>
                                                             </Box>
