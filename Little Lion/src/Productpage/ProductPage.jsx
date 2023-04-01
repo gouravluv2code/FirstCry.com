@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
-
+  const [order,setorder]=useState("")
 
 
   
@@ -19,11 +19,41 @@ const ProductPage = () => {
   }, []);
 
 
+  useEffect (()=>{
+    if(order){
+      if(order=="asc"){
+        const arr=[...products].sort((a,b)=>a.price-b.price);
+        setProducts([...arr])
+      }else if (order=="desc"){
+        const arr=[...products].sort((a,b)=>b.price-a.price);
+        setProducts([...arr])
+      }
+    }
+    
+    
+    },[order])
     
 
   return (
     <div> 
-      
+      <FristNav />
+      <Catbar />
+      <Carousels/>
+
+      <div className="sortingButtons" style={{height:"90px",margin:"auto",display:"flex",width:"90%"}}>
+        <button  className="sortByCostAsc" onClick={()=>setorder("asc")} style={{backgroundColor:"skyblue",width:"20%",margin:"auto",borderRadius:"8px",}}>
+          Sort by Asc
+        </button>
+        <br/>
+        <br/>
+        <button  className="sortByCostDesc" m={2} onClick={()=>setorder("desc")} style={{backgroundColor:"skyblue",width:"20%",margin:"auto",borderRadius:"8px",}}>
+          Sort by Desc
+        </button>
+
+        <input type="text" id="search" placeholder="SEARCH" style={{backgroundColor:"lightgray",width:"40%",margin:"auto",}}/>
+
+        
+      </div>
          <br/>
          <br/>
 
