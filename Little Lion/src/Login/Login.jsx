@@ -16,7 +16,7 @@ import {
 import logo from "../assest/Kids fashion logo.png";
 import { useDispatch,useSelector } from "react-redux";
 import { getToken } from "../redux/LoginReducer/action";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 
 function Login() {
@@ -44,7 +44,8 @@ function Login() {
     }
    
   }
-
+// let location = useLocation();
+// console.log(location);
   if(isAuth){
     // return(<h2>Welcome, you are now logged in. Routing is under process, please wait... Your patience is appreciated.</h2>)
    return <Navigate to='/' />
