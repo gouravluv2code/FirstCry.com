@@ -1,25 +1,32 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Router } from "react-router-dom";
 import Cart from "../Components/Cart/Cart";
 import { AdminPage } from "../AdminPanel/AdminPage";
 import Home from "../HomePage/Home";
 import Login from "../Login/Login";
 import ProductPage from "../Productpage/ProductPage";
 import { Editpage } from "../AdminPanel/EditPage";
-// import { PrivateRoute } from "./PrivateRoute";
 
 const MainRoute = () => {
   return (
     <div>
       <Routes>
+      {/* <Router> */}
+
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/" element={<Home />} />
 
         <Route
           path="/cart"
-          element={<Cart />}
-        />
+          
+          element={
+          
+          <Cart/>
+             
+        }
+        
+          />
 
         <Route path="/admin" element={<AdminPage />} />
         
@@ -33,6 +40,7 @@ const MainRoute = () => {
         <Route path="/edit/:id"  element={<Editpage />} />
 
       </Routes>
+      {/* </Router> */}
     </div>
   );
 };

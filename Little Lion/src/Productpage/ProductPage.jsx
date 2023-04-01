@@ -3,12 +3,31 @@ import FristNav from "../Navbar/FristNav";
 import Catbar from "../Navbar/Catbar";
 import Carousels from "../Carousels/Carousels";
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import { useToast } from "@chakra-ui/react";
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
+
   const [order,setorder]=useState("")
+  const [update, setUpdate] = useState(false)
+  const toast = useToast()
 
 
+  const getData = (id) => {
+        return axios.get(`http://localhost:8080/MenKids/${id}`).then((res) => {
+            res = res.data;
+            setUpdate(!update)
+            res = { ...res, quantity: 1 };
+            let LSdata = JSON.parse(localStorage.getItem("cartdata")) || [];
+            localStorage.setItem("cartdata", JSON.stringify([...LSdata, res]));
+            toast({
+                title: `Item added Successfully`,
+                status: "success",
+                isClosable: true,
+            });
+        })   
+}
   
 
   useEffect(() => {
@@ -32,6 +51,10 @@ const ProductPage = () => {
     
     
     },[order])
+
+const handleAddToCart=(id)=>{
+  getData(id)
+}
     
 
   return (
@@ -67,7 +90,7 @@ const ProductPage = () => {
             <h2>{product.category}</h2>
             
             <p>${product.price}</p>
-            <button onClick={()=>alert("Product add successfully in card  ")} >Add to Cart</button>
+            <button onClick={() => handleAddToCart(product.id)} >Add to Cart</button>
           </div>
         
         </div>
