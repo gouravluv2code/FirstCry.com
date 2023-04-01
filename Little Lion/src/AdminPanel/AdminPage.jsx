@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addProduct } from "../redux/AdminReducer/action"
+import { addProduct, getProduct } from "../redux/AdminReducer/action"
 import { Productlist } from "./ProductList"
 import styled from 'styled-components';
+import { useToast } from "@chakra-ui/react";
+
 
 const initialState={
   title:"",
@@ -16,6 +18,7 @@ const initialState={
 export const AdminPage = () => {
   const [product, setProduct] = useState(initialState);
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +31,14 @@ export const AdminPage = () => {
     e.preventDefault();
     dispatch(addProduct(product));
     setProduct(initialState);
-    alert("Product Added Successfully!!")
+    toast({
+      title: "Product Added Successfully!",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+    dispatch(getProduct())
+    
   };
 
   return (
@@ -92,130 +102,75 @@ export const AdminPage = () => {
 
 
 
-
+const AdminPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+`;
 
 const Heading = styled.h1`
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   text-align: center;
-  margin: 1rem 0;
 `;
 
 const DIV = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
 `;
 
 const FormContainer = styled.div`
-  margin-top: 1rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 `;
 
 const Input = styled.input`
-  margin: 0.5rem 0;
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #f1f1f1;
   font-size: 1rem;
-
-  &:focus {
-    border: 1px solid #000;
-    outline: none;
+  color: #333;
+  ::placeholder {
+    color: #999;
   }
 `;
 
 const Select = styled.select`
-  margin: 0.5rem 0;
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #f1f1f1;
   font-size: 1rem;
-
-  &:focus {
-    border: 1px solid #000;
-    outline: none;
-  }
+  color: #333;
 `;
 
 const Button = styled.button`
-  margin: 0.5rem 0;
   padding: 0.5rem;
-  background-color: #000;
-  color: #fff;
   border: none;
-  border-radius: 5px;
-  width: 100%;
-  font-size: 1rem;
+  border-radius: 0.25rem;
+  background-color: #333;
+  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
+  transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
+    background-color: #555;
   }
 `;
 
-const AdminPageContainer = styled.div`
-  margin: 0 auto;
-  width: 80%;
-  max-width: 1200px;
-`;
 
-const ProductListContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 1rem;
-  margin-top: 2rem;
-`;
 
-const ProductCard = styled.div`
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
 
-const ProductImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-`;
 
-const ProductTitle = styled.h2`
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-`;
 
-const ProductPrice = styled.span`
-  font-size: 1rem;
-  font-weight: bold;
-`;
 
-const NoProductText = styled.p`
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 2rem;
-`;
-
-const ErrorText = styled.p`
-  font-size: 1rem;
-  color: red;
-  margin: 0.5rem 0;
-`;
-
-const SuccessText = styled.p`
-  font-size: 1rem;
-  color: green;
-  margin: 0.5rem 0;
-`;

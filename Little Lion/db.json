@@ -3,7 +3,7 @@
     {
       "image": "https://cdn.fcglcdn.com/brainbees/images/products/438x531/12111917a.webp",
       "title": "Ed-a-Mamma Sustainable Cotton Knit Full Sleeves Tie Dye - Green",
-      "mrp": "1149",
+      "mrp": "1199",
       "price": "999",
       "color": "9adac9",
       "totimg": "3",
@@ -16,7 +16,7 @@
       "image": "https://cdn.fcglcdn.com/brainbees/images/products/438x531/11862373a.webp",
       "title": "Ed a Mamma Full Sleeves Color Blocked Sweatshirts - Off White",
       "mrp": "1090",
-      "price": "9999",
+      "price": "999",
       "color": "edece8",
       "totimg": "3",
       "brand": "Anthrilo",
@@ -63,7 +63,7 @@
     {
       "image": "https://cdn.fcglcdn.com/brainbees/images/products/438x531/11776266a.webp",
       "title": "Pine Kids Full Sleeves Sweatshirt Programmer Print - Yellow",
-      "mrp": "799",
+      "mrp": "7",
       "price": "511",
       "color": "e1eeaa",
       "totimg": "3",
@@ -430,23 +430,6 @@
       "discount": "123",
       "gender": "female",
       "id": 36
-    },
-    {
-      "title": "getting error",
-      "image": "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/21888092/2023/2/9/92ba4c4f-1262-4f82-af18-3a987befaa3c1675933639705PumaActiveSoftTeeBrandLogoPrintedCottonT-Shirt1.jpg",
-      "price": "1000",
-      "discount": "123",
-      "gender": "female",
-      "id": 37
-    },
-    {
-      "title": "",
-      "image": "",
-      "price": "",
-      "mrp": "",
-      "brand": "",
-      "gender": "Boy",
-      "id": 38
     }
   ],
   "GirlKids": [

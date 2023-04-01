@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Get_Product_Success, Patch_product_success, Product_Failure, Product_Req, Product_Success,DELETE_ITEM } from "./actionTypes"
+import { Get_Product_Success, Patch_product_success, Product_Failure, Product_Req, Product_Success,Delete_product_success } from "./actionTypes"
 
 
 
@@ -23,10 +23,21 @@ dispatch({type:Product_Failure})
 
 export const Patchproduct=(dataObj,id)=>(dispatch)=>{
     dispatch({type:Product_Req})
-    axios.patch(`http://localhost:8080/MenKids/${id}`,dataObj).then(()=>{
+    axios.patch(`http://localhost:8080/MenKids`,dataObj).then(()=>{
 dispatch({type:Patch_product_success})
     }).catch(()=>{
         dispatch({type:Product_Failure})
     })
 }
 
+export const deleteProduct = (id) => (dispatch) => {
+    dispatch({ type: Product_Req });
+    axios.delete(`http://localhost:8080/MenKids/${id}`)
+      .then(() => {
+        dispatch({ type: Delete_product_success, payload: id });
+      })
+      .catch(() => {
+        dispatch({ type: Product_Failure });
+      });
+  };
+  

@@ -5,7 +5,7 @@ import { Patchproduct } from "../redux/AdminReducer/action"
 import styled from "styled-components"
 import { Navigate } from 'react-router-dom';
 import { getProduct } from "../redux/AdminReducer/action"
-
+import { useToast } from "@chakra-ui/react"
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,6 +60,7 @@ export const Editpage = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const [data, setData] = useState("")
+  const toast = useToast();
   
   const product = useSelector((store) => store. adminReducer.products)
   
@@ -73,7 +74,12 @@ export const Editpage = () => {
   const handleEdit = (e) => {
     e.preventDefault()
     dispatch(Patchproduct(data, id))
-    alert("product edit Successfully");
+    toast({
+      title: "Product Edit Successfully!",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
     <Navigate to="/admin" replace />
   }
 
@@ -81,7 +87,7 @@ export const Editpage = () => {
    
     const data = product.find((el) => el.id === +id)
     setData(data)
-    dispatch(getProduct())
+    
   }, [])
 
   return (
