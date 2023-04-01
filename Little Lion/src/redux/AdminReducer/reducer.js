@@ -1,4 +1,4 @@
-import { Get_Product_Success, Patch_product_success, Product_Failure, Product_Req, Product_Success } from "./actionTypes"
+import { Get_Product_Success, Patch_product_success, Product_Failure, Product_Req, Product_Success,DELETE_ITEM } from "./actionTypes"
 
 const initialState={
     isLoading:false,
@@ -23,6 +23,7 @@ export const reducer =(state=initialState,{type,payload})=>{
         case Patch_product_success:{
             return {...state,isLoading:false,}
         }
+        
             default:{
                 return {...state}
             }

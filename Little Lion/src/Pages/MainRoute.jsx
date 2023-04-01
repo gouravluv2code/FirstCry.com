@@ -6,6 +6,7 @@ import Home from "../HomePage/Home";
 import Login from "../Login/Login";
 import ProductPage from "../Productpage/ProductPage";
 import { Editpage } from "../AdminPanel/EditPage";
+// import { PrivateRoute } from "./PrivateRoute";
 
 const MainRoute = () => {
   return (

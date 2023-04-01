@@ -1,4 +1,4 @@
-import { SET_AUTH_TOKEN,SET_CURRENT_USER } from "./actionType";
+import { SET_AUTH_TOKEN } from "./actionType";
 
 const initialState = {
     isAuthenticated: false,

@@ -11,10 +11,12 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Heading,
 } from "@chakra-ui/react";
 import logo from "../assest/Kids fashion logo.png";
 import { useDispatch,useSelector } from "react-redux";
 import { getToken } from "../redux/LoginReducer/action";
+import { Navigate } from "react-router-dom";
 
 
 function Login() {
@@ -37,17 +39,21 @@ function Login() {
     e.preventDefault();
    
     dispatch(getToken(email,password));
- 
+    if(email=='' || password==''){
+      setShowError(true)
+    }
    
   }
 
   if(isAuth){
-    return(<h2>Welcome, you are now logged in. Routing is under process, please wait... Your patience is appreciated.</h2>)
+    // return(<h2>Welcome, you are now logged in. Routing is under process, please wait... Your patience is appreciated.</h2>)
+   return <Navigate to='/' />
   }
 
   return (
     <Box maxW="md" mx="auto" my={8} p={6} borderWidth={1} rounded="lg">
       <img src={logo} width={200} style={{display:"block",margin:"auto",justifyContent:"center"}} />
+      <Heading as='h1' size='md' pt='5' pb='5' >Login</Heading>
       <form >
         {showError && (
           <Alert status="error" mb={4}>
