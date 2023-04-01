@@ -1,5 +1,5 @@
 import React from "react";
-// import Otp from "./Otp";
+import Otp from "./Otp";
 import {
   Accordion,
   AccordionItem,
@@ -47,7 +47,7 @@ const Payment = ({ price }) => {
     toast({
       title: "Card Details saved Successfully",
       status: "success",
-      duration: 9000,
+      duration: 5000,
       isClosable: true,
     });
   };
@@ -447,7 +447,7 @@ const Payment = ({ price }) => {
               {/* <Button variant="outline" w= "100%" mr={3} colorScheme="blue" >
                 NEXT
               </Button> */}
-              {/* <Otp /> */}
+              <Otp />
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

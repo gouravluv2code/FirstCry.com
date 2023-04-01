@@ -1274,5 +1274,12 @@
       "location": "home",
       "id": 1
     }
+  ],
+  "sendotp": [
+    {
+      "mobileNumber": "1234567890",
+      "OTP": "1229",
+      "id": 1
+    }
   ]
 }

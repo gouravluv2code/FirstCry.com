@@ -15,8 +15,14 @@ import {
   
   export default function CartProductCard({id,image,title,mrp,price,gender,quantity,
     handlequantity,
-    removeitem
-}) {
+    removeitem,shortlist
+})
+ {
+
+  const handleMoveToShort=()=>{
+    shortlist(id)
+    removeitem(id)
+  }
     return (
       <Center width={"100%"} height="auto" py={{base:"100",sm:"150",md:"50",lg:"6"}} >
         <Stack border={{base:"none",sm:"none",md:"1px solid gray",lg:"1px solid rgb(113,128,150)"}}
@@ -43,7 +49,7 @@ import {
             </Button>
             <Button  
              backgroundColor={"white"} padding={"5px"} width={"160%"}
-             ><Text paddingRight={"5px"} textAlign={"left"}>MOVE TO SHORTLIST</Text><StarIcon/></Button>
+             ><Text paddingRight={"5px"} textAlign={"left"} onClick={handleMoveToShort}>MOVE TO SHORTLIST</Text><StarIcon/></Button>
            </Box>
           </Flex>
           <Stack
