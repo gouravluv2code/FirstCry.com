@@ -23,7 +23,7 @@ dispatch({type:Product_Failure})
 
 export const Patchproduct=(dataObj,id)=>(dispatch)=>{
     dispatch({type:Product_Req})
-    axios.patch(`http://localhost:8080/MenKids`,dataObj).then(()=>{
+    axios.patch(`http://localhost:8080/MenKids/${id}`,dataObj).then(()=>{
 dispatch({type:Patch_product_success})
     }).catch(()=>{
         dispatch({type:Product_Failure})

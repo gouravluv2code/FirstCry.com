@@ -37,17 +37,17 @@ dispatch(getProduct())
 
 const ProductListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
   grid-gap: 50px;
   margin-top: 20px;
   
   @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
     grid-gap: 30px;
   }
   
   @media (max-width: 480px) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
     grid-gap: 20px;
   }
 `;

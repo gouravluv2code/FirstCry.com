@@ -30,7 +30,7 @@ const handleDelete=()=>{
             <Button>
                 <Link to={`/edit/${id}`}>Edit</Link>
             </Button>
-            <Button onClick={handleDelete}  >Delete</Button>
+            <Button style={{marginLeft:"10px"}} onClick={handleDelete}  >Delete</Button>
         </Card>
     );
 };
@@ -68,11 +68,12 @@ const Button = styled.button`
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  margin-top: 10px;
+  
   padding: 8px 16px;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s;
+  margin:10px
 
   a {
     color: white;

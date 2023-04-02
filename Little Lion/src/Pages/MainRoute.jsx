@@ -6,6 +6,8 @@ import Home from "../HomePage/Home";
 import Login from "../Login/Login";
 import ProductPage from "../Productpage/ProductPage";
 import { Editpage } from "../AdminPanel/EditPage";
+import AdminAuth from "../AdminPanel/AdminAuth";
+import { PrivateRoute } from "./PrivateRoute";
 
 const MainRoute = () => {
   return (
@@ -16,6 +18,7 @@ const MainRoute = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/" element={<Home />} />
+        <Route path="/adminlogin" element={<AdminAuth />} />
 
         <Route
           path="/cart"
@@ -28,7 +31,7 @@ const MainRoute = () => {
         
           />
 
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin" element={ <PrivateRoute>  <AdminPage /></PrivateRoute>} />
         
         <Route
           path="/product"

@@ -44,6 +44,10 @@ function FristNav() {
           <Link to={`/account`}>
             <p>My Account |</p>
           </Link>
+          
+          <Link to={`/admin`}>
+            <p>Admin |</p>
+          </Link>
 
   
           <Link to={"/login"}> 

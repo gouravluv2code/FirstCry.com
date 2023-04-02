@@ -115,5 +115,3 @@ export const Editpage = () => {
     </Container>
   )
 }
-
-

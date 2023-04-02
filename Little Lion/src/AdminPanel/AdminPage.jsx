@@ -45,7 +45,7 @@ export const AdminPage = () => {
     <AdminPageContainer>
       <Heading>welcome to Admin panel</Heading>
       <DIV>
-        <div style={{width:"25%",margin:"0px 100px 0px 0px",borderRight:"2px solid black"}}>
+        <div style={{width:"30%",margin:"10px 100px 10px 10px",}}>
           <h5>Add your Product Here</h5>
           <FormContainer>
             <Form onSubmit={handleSubmit}>
@@ -92,85 +92,70 @@ export const AdminPage = () => {
             </Form>
           </FormContainer>
         </div>
-        <div style={{width:"60%"}}>
+        <div style={{width:"70%"}}>
           <Productlist />
         </div>
       </DIV>
     </AdminPageContainer>
   );
 };
-
-
-
-const AdminPageContainer = styled.div`
+export const AdminPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
 `;
 
-const Heading = styled.h1`
+export const Heading = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  text-align: center;
 `;
 
-const DIV = styled.div`
+export const DIV = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   margin-top: 2rem;
+  width: 100%;
 `;
 
-const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+export const FormContainer = styled.div`
+  margin-top: 1rem;
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
   padding: 0.5rem;
-  border: none;
-  border-radius: 0.25rem;
-  background-color: #f1f1f1;
-  font-size: 1rem;
-  color: #333;
-  ::placeholder {
-    color: #999;
-  }
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.2rem;
 `;
 
-const Select = styled.select`
+export const Select = styled.select`
   padding: 0.5rem;
-  border: none;
-  border-radius: 0.25rem;
-  background-color: #f1f1f1;
-  font-size: 1rem;
-  color: #333;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.2rem;
 `;
 
-const Button = styled.button`
-  padding: 0.5rem;
+export const Button = styled.button`
+  background-color: blue;
+  color: white;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 0.25rem;
-  background-color: #333;
-  color: #fff;
+  border-radius: 5px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+
   &:hover {
-    background-color: #555;
+    background-color: darkblue;
   }
 `;
-
-
-
-
-
 
 
