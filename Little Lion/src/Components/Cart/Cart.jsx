@@ -121,7 +121,7 @@ const Cart = () => {
     return (
         <div>
             <div>
-                <div>
+                <div style={{paddingLeft:"150px"}}>
                     <Link to="/"><img src={logo} alt="img" width="100px" /></Link>
                 </div>
                 <div style={{ backgroundColor: "#f0f0f0", paddingTop: "30px" }}>

@@ -32,7 +32,7 @@ export const Showdelivery = () => {
   };
 
   const [formData, setFormData] = useState(intData);
-  const [added,setAdded]=useState(false)
+  // const [added,setAdded]=useState(false)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -41,7 +41,7 @@ export const Showdelivery = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleSaveClick=()=>{
     onClose()
-    setAdded(false)
+    // setAdded(false)
   }
 
   return (
@@ -52,12 +52,11 @@ export const Showdelivery = () => {
         w="70%" 
         mr={"5"}
         onClick={onOpen}
-        isDisabled={!added}
+        // isDisabled={!added}
         // _hover={{ color: "black", bg: "gray.200" }}
       >
-        {
-          added?"ADD DELIVERY ADDRESS":"Select Payment Method"
-        }
+          ADD DELIVERY ADDRESS
+        
       </Button>
       <Drawer
         isOpen={isOpen}
