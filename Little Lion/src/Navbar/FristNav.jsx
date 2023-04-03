@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FristNav.css";
 import { BsFillCartFill } from "react-icons/bs";
 import {  Icon } from "@chakra-ui/react";
@@ -9,14 +9,24 @@ import {  useSelector } from "react-redux";
 import axios from "axios";
 function FristNav() {
   let [userName,setUserName] = useState();
+  const [quant, setQuant] = useState(0)
+
   let isAuth = useSelector((store)=>{
     return store.loginReducer.isAuthenticated;
   })
   let userId= useSelector((store)=>{
     return store.loginReducer.user;
   })
-  
-  
+
+  let cartdata = JSON.parse(localStorage.getItem("cartdata")) || [];
+  useEffect(() => {
+    let tempquntity =
+        cartdata.length > 0 &&
+        cartdata.reduce((acc, item) => {
+            return (acc += item.quantity);
+        }, 0);
+    setQuant(tempquntity)
+}, [cartdata]);
   
   const handleLogOut = ()=>{
     window.location.reload()
@@ -55,9 +65,9 @@ function FristNav() {
           </Link>
 
           <Link to={"/cart"}>
-            <p style={{ cursor: "pointer" }}>Cart</p>
+            <p style={{ cursor: "pointer" }}>Cart <b><span style={{color:"#ff7043"}}>{quant?`(${quant})`:null}</span></b></p> 
           </Link>
-          <Icon className="IC" fontSize="20px">
+          <Icon className="IC" fontSize="23px">
             <BsFillCartFill />
           </Icon>
         </div>
