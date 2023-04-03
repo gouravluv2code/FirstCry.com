@@ -45,7 +45,7 @@ export const AdminPage = () => {
     <AdminPageContainer>
       <Heading>welcome to Admin panel</Heading>
       <DIV>
-        <div style={{width:"30%",margin:"10px 100px 10px 10px",}}>
+        <DAV>
           <h5>Add your Product Here</h5>
           <FormContainer>
             <Form onSubmit={handleSubmit}>
@@ -91,10 +91,10 @@ export const AdminPage = () => {
               <Button type="submit">Submit</Button>
             </Form>
           </FormContainer>
-        </div>
-        <div style={{width:"70%"}}>
+        </DAV>
+        <DEV >
           <Productlist />
-        </div>
+        </DEV>
       </DIV>
     </AdminPageContainer>
   );
@@ -108,14 +108,26 @@ export const AdminPageContainer = styled.div`
 export const Heading = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 2rem;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const DIV = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 2rem;
+  margin: 2rem;
   width: 100%;
+
+  @media only screen and (max-width: 576px) {
+    flex-direction: column;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -134,6 +146,11 @@ export const Input = styled.input`
   border-radius: 5px;
   width: 100%;
   font-size: 1.2rem;
+  
+  @media only screen and (max-width: 576px) {
+    max-width: 90%;
+    font-size: 1rem;
+  }
 `;
 
 export const Select = styled.select`
@@ -142,7 +159,13 @@ export const Select = styled.select`
   border-radius: 5px;
   width: 100%;
   font-size: 1.2rem;
+  @media only screen and (max-width: 576px) {
+    max-width: 90%;
+    
+  }
+ 
 `;
+
 
 export const Button = styled.button`
   background-color: blue;
@@ -156,6 +179,26 @@ export const Button = styled.button`
   &:hover {
     background-color: darkblue;
   }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 1rem;
+    width:90%
+  }
 `;
+export const DAV = styled.div`
+  
+  width: 30%;
+  
 
-
+  @media only screen and (max-width: 576px) {
+   width:100%
+  }
+`;
+export const DEV = styled.div`
+  
+  width: 70%;
+  
+  @media only screen and (max-width: 576px) {
+   width:100%
+  }
+`;
