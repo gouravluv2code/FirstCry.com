@@ -72,6 +72,18 @@ export const Showdelivery = () => {
           </Box>
           <DrawerBody>
             <FormControl>
+            <Box>
+                <Select
+                  mt={5}
+                  mb={5}
+                  name="location"
+                  onChange={handleChange}
+                  placeholder="Select Location"
+                >
+                  <option value="home">Home</option>
+                  <option value="office">Office</option>
+                </Select>
+              </Box>
               <Box>
                 <Tooltip
                   hasArrow
@@ -167,6 +179,7 @@ export const Showdelivery = () => {
                   </Tooltip>
                 </Box>
               </Box>
+
               <Box>
                 <Tooltip
                   hasArrow
@@ -236,17 +249,7 @@ export const Showdelivery = () => {
                 </Tooltip>
               </Box>
 
-              <Box>
-                <Select
-                  mt={5}
-                  name="location"
-                  onChange={handleChange}
-                  placeholder="Select Location"
-                >
-                  <option value="home">Home</option>
-                  <option value="office">Office</option>
-                </Select>
-              </Box>
+      
 
               {formData.name.length === 0 ||
               formData.alternumber.length === 0 ||

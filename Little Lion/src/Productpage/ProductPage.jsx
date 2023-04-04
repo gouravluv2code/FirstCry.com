@@ -15,7 +15,7 @@ const ProductPage = () => {
 
 
   const getData = (id) => {
-        return axios.get(`http://localhost:8080/MenKids/${id}`).then((res) => {
+        return axios.get(`https://worried-costume-lion.cyclic.app/MenKids/${id}`).then((res) => {
             res = res.data;
             setUpdate(!update)
             res = { ...res, quantity: 1 };
@@ -31,7 +31,7 @@ const ProductPage = () => {
   
 
   useEffect(() => {
-    fetch(' http://localhost:8080/MenKids')
+    fetch('https://worried-costume-lion.cyclic.app/MenKids')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error(error));

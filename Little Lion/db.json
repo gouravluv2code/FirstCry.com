@@ -1245,48 +1245,7 @@
     }
   ],
   "UserDetails": [
-    {
-      "name": "gourav",
-      "mobile": "32232232",
-      "alternumber": "323232",
-      "city": "xvdvv",
-      "pincode": "434",
-      "state": "sdsvv",
-      "flat": "vvv",
-      "area": "sdfff",
-      "landmark": "sdfsd",
-      "location": "home",
-      "id": 1
-    },
-    {
-      "name": "gourav",
-      "mobile": "35435334",
-      "alternumber": "3434",
-      "city": "3434",
-      "pincode": "3434",
-      "state": "3434",
-      "flat": "3434",
-      "area": "34",
-      "landmark": "4334",
-      "location": "home",
-      "id": 2
-    }
   ],
   "sendotp": [
-    {
-      "mobileNumber": "1234567890",
-      "OTP": "1229",
-      "id": 1
-    },
-    {
-      "mobileNumber": "1234567890",
-      "OTP": "3801",
-      "id": 2
-    },
-    {
-      "mobileNumber": "1234567890",
-      "OTP": "8615",
-      "id": 3
-    }
   ]
 }
