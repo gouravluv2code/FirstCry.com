@@ -13,11 +13,7 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
   
-  export default function CartProductCard({id,image,title,mrp,price,gender,quantity,
-    handlequantity,
-    removeitem,shortlist
-})
- {
+  export default function CartProductCard({id,image,title,mrp,price,gender,quantity,handlequantity,removeitem,shortlist}){
 
   const handleMoveToShort=()=>{
     shortlist(id)

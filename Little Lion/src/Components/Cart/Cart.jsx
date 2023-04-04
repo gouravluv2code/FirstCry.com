@@ -70,7 +70,7 @@ const Cart = () => {
     };
     const getData = (id) => {
         if (id) {
-            return axios.get(`http://localhost:8080/MenKids/${id}`).then((res) => {
+            return axios.get(`https://worried-costume-lion.cyclic.app/MenKids/${id}`).then((res) => {
                 res = res.data;
                 setUpdate(!update)
                 res = { ...res, quantity: 1 };
@@ -84,7 +84,7 @@ const Cart = () => {
             })
         }
         else {
-            return axios.get(`http://localhost:8080/MenKids`).then((res) => {
+            return axios.get(`https://worried-costume-lion.cyclic.app/MenKids`).then((res) => {
                 setData(res.data)
                 setUpdate(!update)
             }).catch((err) => {
@@ -94,7 +94,7 @@ const Cart = () => {
     }
 
    const getShortListData=(id)=>{
-    return axios.get(`http://localhost:8080/MenKids/${id}`).then((res) => {
+    return axios.get(`https://worried-costume-lion.cyclic.app/MenKids/${id}`).then((res) => {
         res = res.data;
         setUpdate(!update)
         res = { ...res, quantity: 1 };
